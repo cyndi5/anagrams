@@ -92,7 +92,7 @@ de:
 
 ```
 python3 anagrams.py --minimum me --optional vle --wordfile=/Users/cyndi/Documents/words_alpha.txt
-minimum=me; optional=vle; wordfile=/Users/exampleuser/Documents/words_alpha.txt
+minimum=me; optional=vle; wordfile=/Users/cyndi/Documents/words_alpha.txt
 mele:
   ['elem', 'leme', 'mele']
 mee:

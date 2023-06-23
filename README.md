@@ -4,6 +4,10 @@
 
 Cyndi Cavanaugh
 
+## Requirements
+
+Python 3.11 (It should work on later Python 3 versions; it may work on earlier Python 3 versions as well.)
+
 ## Running the Program
 
 All arguments are optional and have default values, as shown in the help message. Providing an argument will only override the corresponding default value for that argument.
@@ -70,7 +74,7 @@ me:
 `OPTIONAL` is the string of characters whose presence is optional in conjunction with the minimum string of characters. The search algorithm will try combining the minimum string with all optional characters and smaller subsets of them.
 
 ```
-python3 anagrams.py --optional vle
+$ python3 anagrams.py --optional vle
 minimum=de; optional=vle; wordfile=/usr/share/dict/words
 devle:
   ['delve']
@@ -91,7 +95,7 @@ de:
 `WORDFILE` is the path to a file containing newline-separated words to search. The default path `/usr/share/dict/words` corresponds to a word list that may come on a Linux or macOS system. Specifying `--wordfile /path/to/another/word_list.txt` will search the `/path/to/another/word_list.txt` file instead. 
 
 ```
-python3 anagrams.py --minimum me --optional vle --wordfile=/Users/cyndi/Documents/words_alpha.txt
+$ python3 anagrams.py --minimum me --optional vle --wordfile=/Users/cyndi/Documents/words_alpha.txt
 minimum=me; optional=vle; wordfile=/Users/cyndi/Documents/words_alpha.txt
 mele:
   ['elem', 'leme', 'mele']

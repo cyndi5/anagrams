@@ -86,26 +86,9 @@ de:
   ['de']
 ```
 
-### `--minimum MINIMUM --optional OPTIONAL`
-
-Specifying both `--minimum` and `--optional` arguments is the typical way to run this program.
-
-```
-python3 anagrams.py --minimum me --optional vle
-minimum=me; optional=vle; wordfile=/usr/share/dict/words
-mele:
-  ['mele']
-mee:
-  ['eme']
-mel:
-  ['elm', 'mel']
-me:
-  ['em', 'me']
-```
-
 ### `--wordfile WORDFILE`
 
-The newline-separated list of words to search. The default path `/usr/share/dict/words` corresponds to a word list that may come on a Linux or macOS system. Specifying `--wordfile /path/to/another/word_list.txt` will search the `/path/to/another/word_list.txt` file instead. 
+`WORDFILE` is the path to a file containing newline-separated words to search. The default path `/usr/share/dict/words` corresponds to a word list that may come on a Linux or macOS system. Specifying `--wordfile /path/to/another/word_list.txt` will search the `/path/to/another/word_list.txt` file instead. 
 
 ```
 python3 anagrams.py --minimum me --optional vle --wordfile=/Users/cyndi/Documents/words_alpha.txt

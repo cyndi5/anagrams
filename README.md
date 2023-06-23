@@ -23,7 +23,7 @@ options:
   --wordfile WORDFILE  word file (default: /usr/share/dict/words)
 ```
 
-### Run with default arguments
+### Default arguments
 
 ```
 $ python3 anagrams.py       
@@ -48,7 +48,7 @@ de:
 
 ### `--minimum MINIMUM`
 
-The minimum string of characters which must be present in the word, in any order; e.g. 'de' == 'ed'.
+`MINIMUM` is the minimum string of characters which must be present in the word, in any order; e.g. 'de' == 'ed'.
 
 ```
 $ python3 anagrams.py --minimum me  
@@ -67,7 +67,7 @@ me:
 
 ### `--optional OPTIONAL`
 
-The string of characters whose presence is optional in conjunction with the minimum string of characters. The search algorithm will try combining the minimum string with all optional characters and smaller subsets of them.
+`OPTIONAL` is the string of characters whose presence is optional in conjunction with the minimum string of characters. The search algorithm will try combining the minimum string with all optional characters and smaller subsets of them.
 
 ```
 python3 anagrams.py --optional vle

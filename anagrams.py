@@ -8,12 +8,6 @@ import pprint
 def count_letters(word):
     """
     Counts the number of each letter in a word.
-
-    Args:
-        word: A string.
-
-    Returns:
-        A dictionary mapping each letter to the number of times it appears in the word.
     """
 
     counts = {}
@@ -29,13 +23,6 @@ def count_letters(word):
 def search_strings(frequencies, strings):
     """
     Searches an array of strings for only those words that have the same character frequencies in the given frequencies.
-
-    Args:
-        frequencies: A dictionary of characters and frequencies.
-        strings: An array of strings.
-
-    Returns:
-        A list of strings that have the same characters and frequencies.
     """
 
     results = []
@@ -49,12 +36,6 @@ def search_strings(frequencies, strings):
 def get_all_subsets_of_string(string):
     """
     Returns all subsets of a string.
-
-    Args:
-      string: The string to get the subsets of.
-
-    Returns:
-      A list of all the subsets of the string.
     """
 
     result = []

@@ -3,6 +3,7 @@ import itertools
 import argparse
 import sys
 import pprint
+import re
 
 
 def count_letters(word):
@@ -46,6 +47,14 @@ def get_all_subsets_of_string(string):
     return reversed(result)
 
 
+def refine_results(results, regex):
+    """
+    Refines search results by only returning ones matching a regex
+    """
+
+    return list(filter(lambda word: re.match(regex, word), results))
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -57,6 +66,10 @@ if __name__ == "__main__":
         help='optional string of characters to try (default: aer)',
         default='aer')
     parser.add_argument(
+        '--regex',
+        help='regex that has to match (default: \'\')',
+        default='')
+    parser.add_argument(
         '--wordfile',
         help='word file (default: /usr/share/dict/words)',
         default='/usr/share/dict/words')
@@ -64,12 +77,15 @@ if __name__ == "__main__":
     minimum = args.minimum
     optional = args.optional
     wordfile = args.wordfile
-    print(f"minimum={minimum}; optional={optional}; wordfile={wordfile}")
+    regex = args.regex
+    print(f"minimum={minimum}; optional={optional}; wordfile={wordfile}; regex={regex}")
     words = pathlib.Path(wordfile).read_text().split('\n')
     optional_combos = get_all_subsets_of_string(optional)
     for combo in optional_combos:
         target = minimum + combo
         results = search_strings(count_letters(target), words)
+        if regex:
+            results = refine_results(results, regex)
         if len(results) > 0:
             print(f"{target}:")
             print(f"  {results}")

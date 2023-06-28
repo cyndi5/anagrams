@@ -62,7 +62,6 @@ def get_all_subsets_of_string(string):
         for combination in itertools.combinations(string, i):
             result.append(''.join(combination))
 
-    # return reversed(list(filter(lambda x: len(x) > 0, result)))
     return reversed(result)
 
 

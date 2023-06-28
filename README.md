@@ -109,10 +109,42 @@ me:
   ['em', 'me']
 ```
 
+### `--regex 'REGEX'`
+
+`REGEX` is a regular expression compatible with the Python regular expressions. I typically place single quotation marks around the regular expression to avoid unwanted parameter expansion by the shell, as in `'REGEX'`. Refine the search results by adding the `--regex` option, specifying the regular expression that any result must match, before outputting the list of possible anagrams. This is helpful if you know the word must start with a certain letter, or contain a certain letter in a certain position, anything that can be searched with a regular expression.
+
+### Starters:
+
+* `.` matches a single character
+* `^` indicates the start of a string
+* `$` indicates the end of a string
+
+### Example: word must be three letters and end with `de`
+
+```
+% python3 anagrams.py --regex '^.de$' 
+minimum=de; optional=aer; wordfile=/usr/share/dict/words; regex=^.de$
+dea:
+  ['ade']
+```
+
+### Example: word must start with `d` and end with `r` and have two characters in between
+
+```
+% python3 anagrams.py --regex '^d..r$'
+minimum=de; optional=aer; wordfile=/usr/share/dict/words; regex=^d..r$
+deer:
+  ['deer']
+dear:
+  ['daer', 'dear']
+```
+
 ## Version History
 
 * 0.1
     * Initial Release
+* 0.2
+    * Added regex results refinement option
 
 ## License
 

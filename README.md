@@ -10,28 +10,41 @@ Python 3.11 (It should work on later Python 3 versions; it may work on earlier P
 
 ## Running the Program
 
-All arguments are optional and have default values, as shown in the help message. Providing an argument will only override the corresponding default value for that argument.
+All arguments except for `--minimum` are optional and have default values, as shown in the help message.
 
-### Display help message
+### `--help`
 
 ```
-$ python3 anagrams.py --help
-usage: anagrams.py [-h] [--minimum MINIMUM] [--optional OPTIONAL]
-                   [--wordfile WORDFILE]
+% python3 anagrams.py --help
+usage: anagrams.py [-h] --minimum MINIMUM [--optional OPTIONAL]
+                   [--regex REGEX] [--wordfile WORDFILE]
 
 options:
   -h, --help           show this help message and exit
-  --minimum MINIMUM    minimum string of characters which must be present
-                       (default: de)
-  --optional OPTIONAL  optional string of characters to try (default: aer)
+  --minimum MINIMUM    minimum string of characters which must be present (required)
+  --optional OPTIONAL  optional string of characters to try (default: '')
+  --regex REGEX        regex that has to match (default: '')
   --wordfile WORDFILE  word file (default: /usr/share/dict/words)
 ```
 
-### Default arguments
+### `--minimum MINIMUM`
+
+`MINIMUM` is the minimum string of characters which must be present in the word, in any order; e.g. 'de' == 'ed'. This argument is required.
 
 ```
-$ python3 anagrams.py       
-minimum=de; optional=aer; wordfile=/usr/share/dict/words
+% python3 anagrams.py --minimum dear
+minimum=dear; optional=; wordfile=/usr/share/dict/words; regex=
+dear:
+  ['ared', 'daer', 'dare', 'dear', 'read']
+```
+
+### `--optional OPTIONAL`
+
+`OPTIONAL` is the string of characters whose presence is optional in conjunction with the minimum string of characters. The search algorithm will try combining the minimum string with all optional characters and smaller subsets of them.
+
+```
+% python3 anagrams.py --minimum de --optional aer
+minimum=de; optional=aer; wordfile=/usr/share/dict/words; regex=
 deaer:
   ['eared', 'erade']
 deer:
@@ -50,63 +63,29 @@ de:
   ['de']
 ```
 
-### `--minimum MINIMUM`
-
-`MINIMUM` is the minimum string of characters which must be present in the word, in any order; e.g. 'de' == 'ed'.
-
-```
-$ python3 anagrams.py --minimum me  
-minimum=me; optional=aer; wordfile=/usr/share/dict/words
-meer:
-  ['mere', 'reem']
-mear:
-  ['mare', 'rame', 'ream']
-mee:
-  ['eme']
-mea:
-  ['ame', 'mae']
-me:
-  ['em', 'me']
-```
-
-### `--optional OPTIONAL`
-
-`OPTIONAL` is the string of characters whose presence is optional in conjunction with the minimum string of characters. The search algorithm will try combining the minimum string with all optional characters and smaller subsets of them.
-
-```
-$ python3 anagrams.py --optional vle
-minimum=de; optional=vle; wordfile=/usr/share/dict/words
-devle:
-  ['delve']
-dele:
-  ['dele', 'lede', 'leed']
-dee:
-  ['dee']
-del:
-  ['eld', 'led']
-dev:
-  ['dev']
-de:
-  ['de']
-```
-
 ### `--wordfile WORDFILE`
 
 `WORDFILE` is the path to a file containing newline-separated words to search. The default path `/usr/share/dict/words` corresponds to a word list that may come on a Linux or macOS system. Specifying `--wordfile /path/to/another/word_list.txt` will search the `/path/to/another/word_list.txt` file instead. 
 
 ```
-$ python3 anagrams.py --minimum me --optional vle --wordfile=/Users/cyndi/Documents/words_alpha.txt
-minimum=me; optional=vle; wordfile=/Users/cyndi/Documents/words_alpha.txt
-mele:
-  ['elem', 'leme', 'mele']
-mee:
-  ['eme', 'mee']
-mel:
-  ['elm', 'mel']
-mev:
-  ['mev']
-me:
-  ['em', 'me']
+% python3 anagrams.py --minimum de --optional aer --wordfile=/Users/cyndi/Documents/words_alpha.txt
+minimum=de; optional=aer; wordfile=/Users/cyndi/Documents/words_alpha.txt; regex=
+deaer:
+  ['deare', 'eared', 'erade']
+deer:
+  ['deer', 'dere', 'dree', 'rede', 'reed']
+dear:
+  ['ared', 'daer', 'dare', 'dear', 'read']
+deae:
+  ['edea']
+der:
+  ['der', 'erd', 'red']
+dee:
+  ['dee']
+dea:
+  ['ade', 'dae', 'dea', 'ead']
+de:
+  ['de', 'ed']
 ```
 
 ### `--regex 'REGEX'`
@@ -122,7 +101,7 @@ me:
 ### Example: word must be three letters and end with `de`
 
 ```
-% python3 anagrams.py --regex '^.de$' 
+% python3 anagrams.py --minimum de --optional aer --regex='^.de$'                                 
 minimum=de; optional=aer; wordfile=/usr/share/dict/words; regex=^.de$
 dea:
   ['ade']
@@ -131,7 +110,7 @@ dea:
 ### Example: word must start with `d` and end with `r` and have two characters in between
 
 ```
-% python3 anagrams.py --regex '^d..r$'
+% python3 anagrams.py --minimum de --optional aer --regex='^d..r$'
 minimum=de; optional=aer; wordfile=/usr/share/dict/words; regex=^d..r$
 deer:
   ['deer']

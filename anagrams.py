@@ -59,12 +59,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '--minimum',
-        help='minimum string of characters which must be present (default: de)',
-        default='de')
+        required=True,
+        help='minimum string of characters which must be present (required)')
     parser.add_argument(
         '--optional',
-        help='optional string of characters to try (default: aer)',
-        default='aer')
+        help='optional string of characters to try (default: \'\')',
+        default='')
     parser.add_argument(
         '--regex',
         help='regex that has to match (default: \'\')',

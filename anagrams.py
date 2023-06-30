@@ -1,8 +1,6 @@
 import pathlib
 import itertools
 import argparse
-import sys
-import pprint
 import re
 
 

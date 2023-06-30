@@ -8,6 +8,11 @@ Cyndi Cavanaugh
 * [youtube.com/@cyndicorinne](https://www.youtube.com/@cyndicorinne)
 * [github.com/cyndi5](https://github.com/cyndi5)
 
+## Algorithm Explanation & Walkthrough Videos
+
+* [Cynthia Computes Anagrams](https://youtu.be/b95GXI25u28)
+* [Algorithms Python Code Walkthrough](https://youtu.be/SW1VT4__KJ4)
+
 ## Requirements
 
 Python 3.11 (It should work on later Python 3 versions; it may work on earlier Python 3 versions as well.)

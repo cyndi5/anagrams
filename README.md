@@ -13,6 +13,11 @@ Cyndi Cavanaugh
 * [Cynthia Computes Anagrams](https://youtu.be/b95GXI25u28)
 * [Algorithms Python Code Walkthrough](https://youtu.be/SW1VT4__KJ4)
 
+## For completeness, here is the full page view of the sheet of paper with my anagrams algorithm, from the first video.
+
+![cyndi5 anagrams algorithm](cyndi5-anagrams-algorithm.jpg)
+
+
 ## Requirements
 
 Python 3.11 (It should work on later Python 3 versions; it may work on earlier Python 3 versions as well.)

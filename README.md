@@ -5,18 +5,8 @@ Tool to assist in finding anagrams with certain minimum set of letters and optio
 ## Author
 
 Cyndi Cavanaugh
-* [youtube.com/@cyndi5hunt](https://www.youtube.com/@cyndi5hunt)
-* [github.com/cyndi5](https://github.com/cyndi5)
-
-## Algorithm Explanation & Walkthrough Videos
-
-* [Cynthia Computes Anagrams](https://youtu.be/b95GXI25u28)
-* [Algorithms Python Code Walkthrough](https://youtu.be/SW1VT4__KJ4)
-
-## For completeness, here is the full page view of the sheet of paper with my anagrams algorithm, from the first video.
-
-![cyndi5 anagrams algorithm](cyndi5-anagrams-algorithm.jpg)
-
+* [youtube.com/@5cyndi5](https://www.youtube.com/@5cyndi5)
+* [github.com/cyndi5](https://github.com/cyndi5) 
 
 ## Requirements
 

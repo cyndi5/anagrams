@@ -5,7 +5,7 @@ Tool to assist in finding anagrams with certain minimum set of letters and optio
 ## Author
 
 Cyndi Cavanaugh
-* [youtube.com/@5cyndi5](https://www.youtube.com/@5cyndi5)
+* [youtube.com/@5cyndi](https://www.youtube.com/@5cyndi)
 * [github.com/cyndi5](https://github.com/cyndi5) 
 
 ## Requirements

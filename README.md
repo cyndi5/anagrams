@@ -140,5 +140,3 @@ dear:
     * Added regex results refinement option
 
 ## License
-
-MIT License
